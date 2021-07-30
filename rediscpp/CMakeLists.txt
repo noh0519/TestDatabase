@@ -1,0 +1,1 @@
+ADD_EXECUTABLE(rediscpp main.cpp)
