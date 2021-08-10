@@ -6,10 +6,11 @@
 using namespace std;
 
 int main(int argc, char** argv) {
-    printf("Hello!\n");
 
     // generate data
     int data_cnt = 10000000;
+    cout << "Json Data Generate " << data_cnt << " Row" << endl;
+
     nlohmann::json j;
     for (int i = 0; i < data_cnt; i++) {
         j["idx"][i] = i;
@@ -23,6 +24,9 @@ int main(int argc, char** argv) {
     ofstream ofs;
     ofs.open("./data.json", ios_base::trunc);
     ofs << setw(4) << j << endl;
+    ofs.close();
+
+    cout << "Generate Completion" << endl;
 
     return 0;
 }
