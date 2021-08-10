@@ -11,10 +11,10 @@ TARGET_INCLUDE_DIRECTORIES(mongodbcpp PUBLIC ${MONGOC_PATH}cmake-build/src/libbs
 TARGET_INCLUDE_DIRECTORIES(mongodbcpp PUBLIC ${MONGOC_PATH}cmake-build/src/libmongoc/src/mongoc)
 #cmake-build/src/libmongoc/src/mongoc/mongoc-config.h
 
-#FIND_LIBRARY(
-#    LIBMONGOC
-#    NAME libmongoc-1.0.so
-#    HINTS ${MONGOC_PATH}cmake-build/src/libmongoc
-#    REQUIRED
-#)
-#TARGET_LINK_LIBRARIES(mongodbcpp ${LIBMONGOC})
+FIND_LIBRARY(
+   LIBMONGOC
+   NAME libmongoc-1.0.so
+   HINTS ${MONGOC_PATH}cmake-build/src/libmongoc
+   REQUIRED
+)
+TARGET_LINK_LIBRARIES(mongodbcpp ${LIBMONGOC})
