@@ -1,3 +1,5 @@
+set(CMAKE_VERBOSE_MAKEFILE 1)
+
 add_compile_options(-g -Wall)
 
 set(MONGOC_PATH ../libs/mongo-c-driver/mongoc/)
