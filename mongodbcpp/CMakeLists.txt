@@ -1,10 +1,10 @@
-ADD_EXECUTABLE(mongodbcpp main.cpp)
+add_compile_options(-g -Wall)
 
-ADD_COMPILE_OPTIONS(-g -Wall)
+set(MONGOC_PATH ../libs/mongo-c-driver/mongoc/)
 
-SET(MONGOC_PATH ../libs/mongo-c-driver/mongoc/)
+add_executable(mongodbcpp main.cpp)
 
-TARGET_INCLUDE_DIRECTORIES(mongodbcpp
+target_include_directories(mongodbcpp
    PUBLIC
    ${MONGOC_PATH}src/libmongoc/src
    ${MONGOC_PATH}src/libbson/src
@@ -12,21 +12,21 @@ TARGET_INCLUDE_DIRECTORIES(mongodbcpp
    ${MONGOC_PATH}cmake-build/src/libmongoc/src/mongoc
 )
 
-TARGET_LINK_DIRECTORIES(mongodbcpp
+target_link_directories(mongodbcpp
    PUBLIC
    ${MONGOC_PATH}cmake-build/src/libmongoc
    ${MONGOC_PATH}cmake-build/src/libbson
 )
 
-TARGET_LINK_LIBRARIES(mongodbcpp
+target_link_libraries(mongodbcpp
    mongoc-1.0
    bson-1.0
 )
 
-# FIND_LIBRARY(
+# find_library(
 #    LIBMONGOC
 #    NAME libmongoc-1.0.so
 #    HINTS ${MONGOC_PATH}cmake-build/src/libmongoc
 #    REQUIRED
 # )
-# TARGET_LINK_LIBRARIES(mongodbcpp ${LIBMONGOC})
+# target_link_libraries(mongodbcpp ${LIBMONGOC})
